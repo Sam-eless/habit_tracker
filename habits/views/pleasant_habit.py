@@ -1,3 +1,5 @@
+from rest_framework.generics import DestroyAPIView, UpdateAPIView, CreateAPIView, ListAPIView, RetrieveAPIView
+
 from habits.models import PleasantHabit
 from habits.serializers.pleasant_habit import PleasantHabitSerializer
 
