@@ -28,8 +28,11 @@ class PleasantHabit(models.Model):
     is_active = models.BooleanField(default=True, verbose_name='Активна')
 
     class Meta:
-        verbose_name = 'Хорошая привычка'
-        verbose_name_plural = 'Хорошие привычки'
+        verbose_name = 'Приятная привычка'
+        verbose_name_plural = 'Приятные привычки'
+
+    def __str__(self):
+        return f'{self.title}'
 
 
 # Create your models here.
@@ -58,3 +61,6 @@ class GoodHabit(models.Model):
     class Meta:
         verbose_name = 'Хорошая привычка'
         verbose_name_plural = 'Хорошие привычки'
+
+    def __str__(self):
+        return f'{self.title}'
