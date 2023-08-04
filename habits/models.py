@@ -54,7 +54,7 @@ class GoodHabit(models.Model):
                                         **NULLABLE)
     frequency = models.SmallIntegerField(default=1, verbose_name="Периодичность напоминания в днях")
     reward = models.CharField(max_length=150, verbose_name='Вознаграждение', **NULLABLE)
-    execution_time = models.TimeField(default="00:01")
+    execution_time = models.TimeField(default="00:01", verbose_name='Время выполнения')
     is_public = models.BooleanField(choices=STATUS, verbose_name='Кому видна привычка')
     is_active = models.BooleanField(default=True, verbose_name='Активна')
 
