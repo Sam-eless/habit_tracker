@@ -1,6 +1,8 @@
 from rest_framework.generics import DestroyAPIView, UpdateAPIView, CreateAPIView, ListAPIView, RetrieveAPIView
+from rest_framework.permissions import IsAuthenticated
 
 from habits.models import PleasantHabit
+from habits.permissions import OwnerOrStuff
 from habits.serializers.pleasant_habit import PleasantHabitSerializer
 
 
@@ -40,7 +42,7 @@ class PleasantHabitCreateView(CreateAPIView):
 class PleasantHabitUpdateView(UpdateAPIView):
     serializer_class = PleasantHabitSerializer
     queryset = PleasantHabit.objects.all()
-    # permission_classes = [IsAuthenticated, OwnerOrStuff]
+    permission_classes = [IsAuthenticated, OwnerOrStuff]
 
     # def partial_update(self, request, *args, **kwargs):
     #
