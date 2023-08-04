@@ -9,5 +9,3 @@ from users.user_serializer import UserSerializer
 class UserCreateView(CreateAPIView):
     serializer_class = UserSerializer
     queryset = User.objects.all()
-
-    # permission_classes = [IsAuthenticated, OwnerOrStuff]

@@ -48,7 +48,7 @@ class GoodHabit(models.Model):
     title = models.CharField(max_length=150, verbose_name='Название', **NULLABLE)
     user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Кем создана', **NULLABLE)
     place = models.CharField(max_length=150, verbose_name='Место', **NULLABLE)
-    time = models.TimeField(default="10:00")
+    time = models.TimeField(default="10:00", verbose_name="Время напоминания")
     action = models.CharField(max_length=150, verbose_name='Действие', **NULLABLE)
     connected_habit = models.ForeignKey(PleasantHabit, on_delete=models.CASCADE, verbose_name='Приятная привычка',
                                         **NULLABLE)
