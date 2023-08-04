@@ -1,5 +1,8 @@
 from rest_framework.generics import DestroyAPIView, UpdateAPIView, CreateAPIView, ListAPIView, RetrieveAPIView
+from rest_framework.permissions import IsAuthenticated
+
 from habits.models import GoodHabit
+from habits.permissions import OwnerOrStuff
 from habits.serializers.good_habit import GoodHabitSerializer
 
 
@@ -39,7 +42,7 @@ class GoodHabitCreateView(CreateAPIView):
 class GoodHabitUpdateView(UpdateAPIView):
     serializer_class = GoodHabitSerializer
     queryset = GoodHabit.objects.all()
-    # permission_classes = [IsAuthenticated, OwnerOrStuff]
+    permission_classes = [IsAuthenticated, OwnerOrStuff]
 
     # def partial_update(self, request, *args, **kwargs):
     #
