@@ -10,7 +10,7 @@ class ConnectedHabitAndRewardValidator:
     def __call__(self, value):
         if value.get("reward") is not None and value.get("connected_habit") is not None:
             raise serializers.ValidationError(
-                "it is impossible to establish a reward and a pleasant habit at the same time")
+                "Невозможно установить награду и приятную привычку одновременно")
 
 
 class ExecutionTimeValidator:
@@ -20,3 +20,12 @@ class ExecutionTimeValidator:
     def __call__(self, value):
         if value.get("execution_time") > time(00, 2, 00):
             raise serializers.ValidationError("Время выполнения не должно превышать 120 секунд")
+
+
+class FrequencyValidator:
+    def __init__(self, field):
+        self.field = field
+
+    def __call__(self, value):
+        if value.get("frequency") > 7:
+            raise serializers.ValidationError("Нельзя выполнять привычку реже, чем 1 раз в 7 дней")
