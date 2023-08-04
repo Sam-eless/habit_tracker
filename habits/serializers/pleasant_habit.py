@@ -5,7 +5,7 @@ from habits.models import GoodHabit, PleasantHabit
 
 
 class PleasantHabitSerializer(serializers.ModelSerializer):
-    good_habit = SlugRelatedField(slug_field='pk', queryset=GoodHabit.objects.all())
+    # good_habit = SlugRelatedField(slug_field='pk', queryset=GoodHabit.objects.all())
     # validators = [UrlValidator(field="url")]
 
     class Meta:
