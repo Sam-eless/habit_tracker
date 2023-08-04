@@ -2,6 +2,7 @@ from rest_framework.generics import DestroyAPIView, UpdateAPIView, CreateAPIView
 from rest_framework.permissions import IsAuthenticated
 
 from habits.models import GoodHabit
+from habits.pagination import CustomPagination
 from habits.permissions import OwnerOrStuff
 from habits.serializers.good_habit import GoodHabitSerializer
 
@@ -12,11 +13,13 @@ class GoodHabitDetailView(RetrieveAPIView):
     # permission_classes = [IsAuthenticated, OwnerOrStuff]
 
 
+#
+
 class GoodHabitListView(ListAPIView):
     serializer_class = GoodHabitSerializer
     queryset = GoodHabit.objects.all()
     # permission_classes = [IsAuthenticated, OwnerOrStuff]
-    # pagination_class = CustomPagination
+    pagination_class = CustomPagination
 
 
 class GoodHabitCreateView(CreateAPIView):
@@ -61,4 +64,4 @@ class GoodHabitUpdateView(UpdateAPIView):
 class GoodHabitDeleteView(DestroyAPIView):
     serializer_class = GoodHabitSerializer
     queryset = GoodHabit.objects.all()
-    # permission_classes = [IsAuthenticated, OwnerOrStuff]
+    permission_classes = [IsAuthenticated, OwnerOrStuff]

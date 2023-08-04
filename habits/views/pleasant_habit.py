@@ -2,6 +2,7 @@ from rest_framework.generics import DestroyAPIView, UpdateAPIView, CreateAPIView
 from rest_framework.permissions import IsAuthenticated
 
 from habits.models import PleasantHabit
+from habits.pagination import CustomPagination
 from habits.permissions import OwnerOrStuff
 from habits.serializers.pleasant_habit import PleasantHabitSerializer
 
@@ -9,14 +10,14 @@ from habits.serializers.pleasant_habit import PleasantHabitSerializer
 class PleasantHabitDetailView(RetrieveAPIView):
     serializer_class = PleasantHabitSerializer
     queryset = PleasantHabit.objects.all()
-    # permission_classes = [IsAuthenticated, OwnerOrStuff]
+    permission_classes = [IsAuthenticated, OwnerOrStuff]
 
 
 class PleasantHabitListView(ListAPIView):
     serializer_class = PleasantHabitSerializer
     queryset = PleasantHabit.objects.all()
-    # permission_classes = [IsAuthenticated, OwnerOrStuff]
-    # pagination_class = CustomPagination
+    permission_classes = [IsAuthenticated, OwnerOrStuff]
+    pagination_class = CustomPagination
 
 
 class PleasantHabitCreateView(CreateAPIView):
@@ -61,4 +62,4 @@ class PleasantHabitUpdateView(UpdateAPIView):
 class PleasantHabitDeleteView(DestroyAPIView):
     serializer_class = PleasantHabitSerializer
     queryset = PleasantHabit.objects.all()
-    # permission_classes = [IsAuthenticated, OwnerOrStuff]
+    permission_classes = [IsAuthenticated, OwnerOrStuff]
