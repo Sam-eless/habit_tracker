@@ -10,23 +10,27 @@ from habits.serializers.good_habit import GoodHabitSerializer
 class GoodHabitDetailView(RetrieveAPIView):
     serializer_class = GoodHabitSerializer
     queryset = GoodHabit.objects.all()
-    # permission_classes = [IsAuthenticated, OwnerOrStuff]
+    permission_classes = [IsAuthenticated, OwnerOrStuff]
 
-
-#
 
 class GoodHabitListView(ListAPIView):
     serializer_class = GoodHabitSerializer
     queryset = GoodHabit.objects.all()
-    # permission_classes = [IsAuthenticated, OwnerOrStuff]
+    permission_classes = [IsAuthenticated, OwnerOrStuff]
     pagination_class = CustomPagination
 
+
+class GoodHabitPublicListView(ListAPIView):
+    serializer_class = GoodHabitSerializer
+    queryset = GoodHabit.objects.filter(is_public=True)
+    permission_classes = [IsAuthenticated, OwnerOrStuff]
+    pagination_class = CustomPagination
 
 class GoodHabitCreateView(CreateAPIView):
     serializer_class = GoodHabitSerializer
     queryset = GoodHabit.objects.all()
 
-    # permission_classes = [IsAuthenticated, OwnerOrStuff]
+    permission_classes = [IsAuthenticated, OwnerOrStuff]
     #
     # def create(self, request, *args, **kwargs):
     #     super().create(request, *args, **kwargs)
