@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # 'django_celery_beat',
     'rest_framework',
     'django_filters',
     'corsheaders',
@@ -152,3 +153,19 @@ CSRF_TRUSTED_ORIGINS = [
 
 CORS_ALLOW_ALL_ORIGINS = False
 
+CELERY_BROKER_URL = 'redis://localhost:6379'
+CELERY_RESULT_BACKEND = 'redis://localhost:6379'
+CELERY_TIMEZONE = "Australia/Tasmania"
+CELERY_TASK_TRACK_STARTED = True
+CELERY_TASK_TIME_LIMIT = 30 * 60
+
+CELERY_BEAT_SCHEDULE = {
+    'check_last_login_user': {
+        'task': 'lms.tasks.check_last_login_user',
+        'schedule': timedelta(minutes=60 * 12),
+    },
+    # 'scheduled_check_status_payment': {
+    #     'task': 'lms.tasks.scheduled_check_status_payment',
+    #     'schedule': timedelta(minutes=1),
+    # }
+}
