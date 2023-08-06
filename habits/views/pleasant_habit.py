@@ -23,7 +23,7 @@ class PleasantHabitListView(ListAPIView):
 class PleasantHabitPublicListView(ListAPIView):
     serializer_class = PleasantHabitSerializer
     queryset = PleasantHabit.objects.filter(is_public=True)
-    permission_classes = [IsAuthenticated, OwnerOrStuff]
+    permission_classes = [IsAuthenticated]
     pagination_class = CustomPagination
 
 
