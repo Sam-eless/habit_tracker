@@ -26,7 +26,7 @@ class PleasantHabit(models.Model):
     frequency = models.SmallIntegerField(default=1, verbose_name="Периодичность напоминания в днях")
     execution_time = models.TimeField(default="00:01")
     last_reminder_date = models.DateField(default=now, verbose_name="Дата последнего напоминания")
-    is_public = models.BooleanField(choices=STATUS, verbose_name='Кому видна привычка')
+    is_public = models.BooleanField(choices=STATUS, verbose_name='Кому видна привычка', default=False)
     is_active = models.BooleanField(default=True, verbose_name='Активна')
 
     class Meta:
@@ -58,7 +58,7 @@ class GoodHabit(models.Model):
     reward = models.CharField(max_length=150, verbose_name='Вознаграждение', **NULLABLE)
     execution_time = models.TimeField(default="00:01", verbose_name='Время выполнения')
     last_reminder_date = models.DateField(default=now, verbose_name="Дата последнего напоминания")
-    is_public = models.BooleanField(choices=STATUS, verbose_name='Кому видна привычка')
+    is_public = models.BooleanField(choices=STATUS, verbose_name='Кому видна привычка', default=False)
     is_active = models.BooleanField(default=True, verbose_name='Активна')
 
     class Meta:
