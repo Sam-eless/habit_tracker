@@ -163,10 +163,7 @@ CELERY_BEAT_SCHEDULE = {
     'checking_need_for_habit': {
         'task': 'habits.tasks.checking_need_for_habit',
         'schedule': timedelta(minutes=1),
-        # 'schedule': timedelta(minutes=60 * 12),
-    },
-    # 'scheduled_check_status_payment': {
-    #     'task': 'lms.tasks.scheduled_check_status_payment',
-    #     'schedule': timedelta(minutes=1),
-    # }
+    }
 }
+
+TELEGRAM_TOKEN = os.getenv('TELEGRAM_TOKEN')
