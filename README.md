@@ -33,15 +33,15 @@
 
 Команда для создания супер пользователя:
     
-    $python manage.py csu
+    $ python manage.py csu
 
 Команда для создания тестового пользователя:
     
-    $python manage.py cu
+    $ python manage.py cu
 
 Запустить redis на linux или на WSL windows:
 
-    $redis-server
+    $ redis-server
 
 Теперь вы можете запустить сервер разработки:
 
