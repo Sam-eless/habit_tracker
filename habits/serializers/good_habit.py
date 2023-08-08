@@ -6,7 +6,7 @@ from habits.validators import ConnectedHabitAndRewardValidator, ExecutionTimeVal
 
 
 class GoodHabitSerializer(serializers.ModelSerializer):
-    connected_habit = SlugRelatedField(slug_field='title', queryset=PleasantHabit.objects.all())
+    # connected_habit = SlugRelatedField(slug_field='title', allow_null=True, queryset=PleasantHabit.objects.all())
     validators = [ConnectedHabitAndRewardValidator(field="connected_habit"),
                   ExecutionTimeValidator(field="execution_time"), FrequencyValidator(field="frequency")]
 
