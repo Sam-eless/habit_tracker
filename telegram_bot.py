@@ -1,7 +1,6 @@
 import os
 import django
 import telebot
-from telebot import types
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings")
 django.setup()

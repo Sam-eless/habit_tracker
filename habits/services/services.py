@@ -3,7 +3,6 @@ import requests
 from rest_framework.response import Response
 from config import settings
 from habits.models import GoodHabit, PleasantHabit
-from users.models import User
 
 
 def checking_good_habit():

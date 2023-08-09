@@ -1,15 +1,11 @@
-from datetime import datetime, date
-
+from datetime import date
 from django.db import models
-from django.utils.timezone import now
-
 from users.models import User
 
 NULLABLE = {'blank': True, 'null': True}
 
 
 class PleasantHabit(models.Model):
-
     title = models.CharField(max_length=150, verbose_name='Название', **NULLABLE)
     user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Кем создана', **NULLABLE)
     place = models.CharField(max_length=150, verbose_name='Место', **NULLABLE)
@@ -30,14 +26,11 @@ class PleasantHabit(models.Model):
 
 
 class GoodHabit(models.Model):
-
     title = models.CharField(max_length=150, verbose_name='Название', **NULLABLE)
     user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Кем создана', **NULLABLE)
     place = models.CharField(max_length=150, verbose_name='Место', **NULLABLE)
     time = models.TimeField(default="10:00", verbose_name="Время напоминания")
     action = models.CharField(max_length=150, verbose_name='Действие', **NULLABLE)
-    # connected_habit = models.ForeignKey(PleasantHabit, **NULLABLE, on_delete=models.CASCADE,
-    #                                     verbose_name='Приятная привычка')
     connected_habit = models.ForeignKey(PleasantHabit, blank=True, null=True, on_delete=models.CASCADE,
                                         verbose_name='Приятная привычка')
     frequency = models.SmallIntegerField(default=1, verbose_name="Периодичность напоминания в днях")
