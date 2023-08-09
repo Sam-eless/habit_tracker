@@ -1,7 +1,6 @@
 from rest_framework import serializers
-from rest_framework.relations import SlugRelatedField
 
-from habits.models import GoodHabit, PleasantHabit
+from habits.models import PleasantHabit
 from habits.validators import ExecutionTimeValidator, FrequencyValidator
 
 

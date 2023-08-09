@@ -13,9 +13,7 @@ class User(AbstractUser):
     tg_chat_id = models.CharField(max_length=100, verbose_name='id чата в телеграм', **NULLABLE)
     first_name = models.CharField(max_length=100, verbose_name='имя', **NULLABLE)
     last_name = models.CharField(max_length=100, verbose_name='фамилия', **NULLABLE)
-    # avatar = models.ImageField(upload_to='users/', verbose_name='аватар', **NULLABLE)
     is_email_verified = models.BooleanField(verbose_name='email подтвержден', default=False)
-    # is_blocked = models.BooleanField(verbose_name='пользователь заблокирован', default=False)
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
